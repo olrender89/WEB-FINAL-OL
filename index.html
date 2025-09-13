@@ -27,6 +27,7 @@
             background-color: var(--color-blanco);
             color: var(--color-negro);
             line-height: 1.6;
+            position: relative;
         }
 
         .container {
@@ -943,6 +944,7 @@
                     // Ocultar indicador de carga
                     document.getElementById('cargando-modal').style.display = 'none';
                     
+                    // Verificar si la respuesta es exitosa
                     if (response.ok) {
                         // Ocultar modal y mostrar confirmación
                         modal.style.display = 'none';
