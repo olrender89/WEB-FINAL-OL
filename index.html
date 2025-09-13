@@ -325,7 +325,8 @@
 
         .calendly-container {
             width: 100%;
-            height: 600px;
+            min-height: 700px;
+            height: 700px;
             margin-top: 30px;
         }
 
@@ -567,6 +568,11 @@
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .calendly-container {
+                height: 600px;
+                min-height: 600px;
+            }
         }
     </style>
 </head>
@@ -796,12 +802,9 @@
         <p>Como parte de tu primer encargo, tienes una videollamada gratuita de 30 minutos conmigo para definir tu proyecto.</p>
         <p>Por favor, agenda tu cita en el calendario a continuación:</p>
         
-        <!-- Espacio para iframe de Calendly -->
+        <!-- Integración de Calendly -->
         <div class="calendly-container">
-            <!-- Reemplaza esta div con tu iframe de Calendly -->
-            <div style="background-color: #f3f6fb; display: flex; align-items: center; justify-content: center; height: 100%; border-radius: 8px;">
-                <p>Aquí irá tu integración de Calendly</p>
-            </div>
+            <div class="calendly-inline-widget" data-url="https://calendly.com/olrender89/30min" style="min-width:320px;height:700px;"></div>
         </div>
         
         <p>O si prefieres, contáctame directamente al <strong>626 275 068</strong> o al <strong>olrender89@gmail.com</strong></p>
@@ -813,6 +816,9 @@
             <p>Teléfono: 626 275 068 | Email: olrender89@gmail.com</p>
         </div>
     </footer>
+
+    <!-- Script de Calendly -->
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
     <script>
         // Script para el formulario de contacto con Formspree
