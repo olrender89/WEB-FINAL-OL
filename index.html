@@ -143,13 +143,23 @@
             color: var(--color-dorado);
         }
 
+        /* Sección Render Principal */
+        .render-principal {
+            padding: 0;
+            background-color: var(--color-negro);
+            text-align: center;
+        }
+
+        .render-principal img {
+            width: 100%;
+            max-height: 80vh;
+            object-fit: cover;
+            display: block;
+        }
+
         /* Secciones */
         .section {
             padding: 60px 0;
-        }
-
-        .sobre-mi {
-            background-color: var(--color-blanco);
         }
 
         .origen {
@@ -583,7 +593,6 @@
                 <div class="logo">O.L Render</div>
                 <nav>
                     <ul>
-                        <li><a href="#sobre-mi">Sobre Mí</a></li>
                         <li><a href="#origen">Origen</a></li>
                         <li><a href="#servicios">Servicios</a></li>
                         <li><a href="#proyectos">Proyectos</a></li>
@@ -596,19 +605,16 @@
     </header>
 
     <main>
-        <section id="sobre-mi" class="section sobre-mi">
-            <div class="container">
-                <h2>Sobre Mí</h2>
-                <p>Soy un diseñador de interiores apasionado por crear espacios que reflejen la personalidad y necesidades de mis clientes. </p>
-                <p> He trabajado en proyectos residenciales y comerciales en todo el país. Mi enfoque combina funcionalidad, estética y bienestar, siempre buscando soluciones innovadoras que superen las expectativas.</p>
-            </div>
+        <!-- Sección Render Principal en lugar de Sobre Mí -->
+        <section class="render-principal">
+            <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" alt="Render de interior moderno">
         </section>
 
         <section id="origen" class="section origen">
             <div class="container">
                 <h2>Origen</h2>
                 <p>O.L Render nace de la necesidad actual de ver para sentir, emocionarse y diferenciarse. En un mundo donde las ideas compiten constantemente por llamar la atención, la visualización 3D se convierte en el puente entre la imaginación y la realidad.</p>
-                <p>La empresa surge con el propósito de ofrecer imágenes capaces de transmitir sensaciones, no solo mostrar un espacio. Creemos que cada proyecto de interiorismo merece ser experienciado antes de hacerse realidad, para que el cliente pueda conectar con él, entenderlo and vivirlo.</p>
+                <p>La empresa surge con el propósito de ofrecer imágenes capaces de transmitir sensaciones, no solo mostrar un espacio. Creemos que cada proyecto de interiorismo merece ser experienciado antes de hacerse realidad, para que el cliente pueda conectar con él, entenderlo y vivirlo.</p>
                 <p>Nuestro origen está en la convicción de que la visualización no es solo una herramienta técnica, sino un lenguaje emocional que permite soñar, proyectar y decidir con seguridad.</p>
             </div>
         </section>
@@ -637,7 +643,7 @@
                     <div class="servicio-card">
                         <div class="servicio-icono">🏠</div>
                         <h3>Proyecto Integral</h3>
-                        <p>Interiorismo completo con renders, moodboards and asesoría personalizada. Desde el concepto inicial hasta la ejecución final de tu espacio.</p>
+                        <p>Interiorismo completo con renders, moodboards y asesoría personalizada. Desde el concepto inicial hasta la ejecución final de tu espacio.</p>
                         <button class="btn-presupuesto" data-servicio="Proyecto Integral">Solicitar presupuesto gratuito</button>
                     </div>
                 </div>
@@ -653,28 +659,28 @@
                             <img src="DORMITORIO.png" alt="Proyecto Residencial">
                         </div>
                         <h3>Proyecto Residencial</h3>
-                        <p>Visualización de vivienda unifamiliar con enfoque en espacios abiertos and iluminación natural.</p>
+                        <p>Visualización de vivienda unifamiliar con enfoque en espacios abiertos y iluminación natural.</p>
                     </div>
                     <div class="card" onclick="window.location.href='https://olrender89.github.io/local01/'">
                         <div class="card-image">
                             <img src="OFICINA.png" alt="Proyectos locales">
                         </div>
                         <h3>Proyectos locales</h3>
-                        <p>Renderizado de instalaciones deportivas con énfasis en los materiales and el entorno.</p>
+                        <p>Renderizado de instalaciones deportivas con énfasis en los materiales y el entorno.</p>
                     </div>
                     <div class="card" onclick="window.location.href='https://olrender89.github.io/cocina01/'">
                         <div class="card-image">
                             <img src="COCINA.png" alt="Cocinas">
                         </div>
                         <h3>Cocinas</h3>
-                        <p>Ambientación and diseño de interiores para apartamento en zona urbana.</p>
+                        <p>Ambientación y diseño de interiores para apartamento en zona urbana.</p>
                     </div>
                     <div class="card" onclick="window.location.href='https://olrender89.github.io/bano01/'">
                         <div class="card-image">
                             <img src="BAÑO.jpg.png" alt="Baños">
                         </div>
                         <h3>Baños</h3>
-                        <p>Ambientación and diseño de interiores para apartamento en zona urbana.</p>
+                        <p>Ambientación y diseño de interiores para apartamento en zona urbana.</p>
                     </div>
                 </div>
             </div>
