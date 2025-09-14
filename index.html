@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O.L Render - Portafolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-   <!-- 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --color-azul-principal: #1E3A8A;
-            --color-dorado: #C5A253;
+            --color-rojo-principal: #dd3333;
+            --color-rojo-oscuro: #c52e2e;
             --color-blanco: #FFFFFF;
-            --color-negro: #000000;
-            --color-azul-claro: #F3F6FB;
+            --color-negro: #111111;
+            --color-gris-claro: #F0F5FA;
+            --color-gris: #D1D5DB;
+            --color-texto: #111827;
         }
 
         * {
@@ -25,77 +26,46 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: "Poppins", sans-serif;
+            font-family: "Montserrat", sans-serif;
             background-color: var(--color-blanco);
-            color: var(--color-negro);
+            color: var(--color-texto);
             line-height: 1.6;
             position: relative;
         }
 
         .container {
             width: 90%;
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 0 auto;
         }
 
-        /* Header con efecto GIF */
+        /* Header estilo Davant */
         header {
-            background-color: var(--color-negro);
-            color: var(--color-blanco);
+            background-color: var(--color-blanco);
+            color: var(--color-negro);
             position: sticky;
             top: 0;
             z-index: 1000;
-            transition: all 0.5s ease;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, var(--color-azul-principal), var(--color-dorado), var(--color-azul-principal));
-            background-size: 400% 400%;
-            opacity: 0;
-            z-index: -1;
-            transition: opacity 0.5s ease;
-        }
-
-        header:hover::before {
-            opacity: 1;
-            animation: gradientAnimation 3s ease infinite;
-        }
-
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
         }
 
         .header-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 20px 0;
             position: relative;
-            z-index: 1;
         }
 
         .logo {
-            height: 60px;
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--color-dorado);
+            height: 46px;
             display: flex;
             align-items: center;
-            transition: color 0.3s ease;
         }
 
-        header:hover .logo {
-            color: var(--color-blanco);
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        .logo img {
+            height: 100%;
+            width: auto;
         }
 
         nav ul {
@@ -106,13 +76,14 @@
         }
 
         nav li {
-            margin-left: 20px;
+            margin-left: 25px;
         }
 
         nav a {
             text-decoration: none;
-            color: var(--color-blanco);
+            color: var(--color-negro);
             font-weight: 600;
+            font-size: 15px;
             transition: color 0.3s;
             position: relative;
             padding: 5px 0;
@@ -125,7 +96,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--color-dorado);
+            background-color: var(--color-rojo-principal);
             transition: width 0.3s ease;
         }
 
@@ -134,38 +105,159 @@
         }
 
         nav a:hover {
-            color: var(--color-dorado);
+            color: var(--color-rojo-principal);
         }
 
-        header:hover nav a {
+        .btn-presupuesto-header {
+            background-color: var(--color-rojo-principal);
             color: var(--color-blanco);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 0;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: "Montserrat", sans-serif;
         }
 
-        header:hover nav a:hover {
-            color: var(--color-dorado);
+        .btn-presupuesto-header:hover {
+            background-color: var(--color-rojo-oscuro);
         }
 
-        /* Sección Render Principal */
-        .render-principal {
-            padding: 0;
-            background-color: var(--color-negro);
+        /* Hero Section estilo Davant */
+        .hero {
+            position: relative;
+            height: 80vh;
+            min-height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-blanco);
             text-align: center;
         }
 
-        .render-principal img {
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-height: 80vh;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            display: block;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-hero {
+            background-color: var(--color-rojo-principal);
+            color: var(--color-blanco);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 0;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .btn-hero:hover {
+            background-color: var(--color-rojo-oscuro);
+        }
+
+        /* Stats Section */
+        .stats {
+            background-color: var(--color-rojo-principal);
+            color: var(--color-blanco);
+            padding: 40px 0;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-text {
+            font-size: 1rem;
         }
 
         /* Secciones */
         .section {
-            padding: 60px 0;
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--color-rojo-principal);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--color-texto);
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .origen {
-            background-color: var(--color-azul-claro);
+            background-color: var(--color-gris-claro);
         }
 
         .servicios {
@@ -173,31 +265,11 @@
         }
 
         .proyectos {
-            background-color: var(--color-blanco);
+            background-color: var(--color-gris-claro);
         }
 
         .contacto {
-            background-color: var(--color-azul-claro);
-        }
-
-        h2 {
-            color: var(--color-azul-principal);
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        h3 {
-            color: var(--color-negro);
-            font-size: 1.5rem;
-            margin-top: 10px;
-        }
-
-        p {
-            font-size: 1rem;
-            color: var(--color-negro);
-            margin-bottom: 20px;
-            text-align: center;
+            background-color: var(--color-blanco);
         }
 
         /* Grid de servicios */
@@ -213,21 +285,21 @@
             background-color: var(--color-blanco);
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             text-align: center;
             transition: transform 0.3s ease;
             width: calc(33.333% - 30px);
             max-width: 350px;
             min-width: 280px;
-            padding: 25px;
+            padding: 30px 25px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
         .servicio-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
         }
 
         .servicio-icono {
@@ -237,15 +309,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--color-azul-claro);
+            background-color: var(--color-rojo-principal);
             border-radius: 50%;
-            color: var(--color-azul-principal);
+            color: var(--color-blanco);
             font-size: 2rem;
         }
 
         .servicio-card h3 {
-            color: var(--color-azul-principal);
+            color: var(--color-rojo-principal);
             margin-bottom: 15px;
+            font-size: 1.5rem;
         }
 
         .servicio-card p {
@@ -254,21 +327,21 @@
         }
 
         .btn-presupuesto {
-            background-color: var(--color-azul-principal);
+            background-color: var(--color-rojo-principal);
             color: var(--color-blanco);
             border: none;
             padding: 12px 20px;
-            border-radius: 5px;
+            border-radius: 0;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: background-color 0.3s;
             width: 100%;
+            font-family: "Montserrat", sans-serif;
         }
 
         .btn-presupuesto:hover {
-            background-color: var(--color-dorado);
-            color: var(--color-negro);
+            background-color: var(--color-rojo-oscuro);
         }
 
         /* Modal de formulario */
@@ -287,7 +360,7 @@
         .modal-contenido {
             background-color: var(--color-blanco);
             margin: 5% auto;
-            padding: 30px;
+            padding: 40px;
             border-radius: 10px;
             width: 90%;
             max-width: 600px;
@@ -312,6 +385,7 @@
         .modal h2 {
             margin-bottom: 20px;
             text-align: left;
+            color: var(--color-rojo-principal);
         }
 
         /* Página de confirmación */
@@ -326,7 +400,7 @@
         }
 
         .confirmacion h2 {
-            color: var(--color-azul-principal);
+            color: var(--color-rojo-principal);
             margin-bottom: 20px;
         }
 
@@ -342,7 +416,7 @@
             margin-top: 30px;
         }
 
-        /* Grid de proyectos - CENTRADO EN DOS FILAS */
+        /* Grid de proyectos */
         .proyectos-grid {
             display: flex;
             flex-wrap: wrap;
@@ -354,7 +428,7 @@
             background-color: var(--color-blanco);
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             text-align: center;
             transition: transform 0.3s ease;
             width: calc(50% - 30px);
@@ -365,19 +439,19 @@
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
         }
 
         .card::after {
-            content: 'Ver más proyectos →';
+            content: 'Ver más detalles →';
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background-color: rgba(30, 58, 138, 0.9);
+            background-color: rgba(0, 102, 65, 0.9);
             color: white;
-            padding: 10px;
+            padding: 12px;
             transform: translateY(100%);
             transition: transform 0.3s ease;
             font-weight: 600;
@@ -389,7 +463,7 @@
 
         .card-image {
             width: 100%;
-            height: 200px;
+            height: 250px;
             overflow: hidden;
         }
 
@@ -405,21 +479,59 @@
         }
 
         .card h3 {
-            padding: 15px 0;
-            color: var(--color-azul-principal);
+            padding: 20px 0 10px;
+            color: var(--color-rojo-principal);
+            font-size: 1.3rem;
         }
 
         .card p {
-            padding: 0 15px 15px;
+            padding: 0 15px 20px;
+            color: var(--color-texto);
         }
 
         /* Footer */
         footer {
-            background-color: var(--color-negro);
+            background-color: var(--color-rojo-principal);
             color: var(--color-blanco);
             text-align: center;
-            padding: 20px 0;
+            padding: 40px 0 20px;
             font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--color-blanco);
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--color-blanco);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 20px;
         }
 
         /* Sección de contacto */
@@ -438,8 +550,9 @@
         }
 
         .contacto-item h3 {
-            color: var(--color-azul-principal);
+            color: var(--color-rojo-principal);
             margin-bottom: 15px;
+            font-size: 1.3rem;
         }
 
         .contacto-item p {
@@ -448,7 +561,7 @@
         }
 
         .contacto-form {
-            background-color: var(--color-blanco);
+            background-color: var(--color-gris-claro);
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -464,17 +577,17 @@
             display: block;
             margin-bottom: 5px;
             font-weight: 600;
-            color: var(--color-azul-principal);
+            color: var(--color-rojo-principal);
         }
 
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: "Poppins", sans-serif;
+            padding: 12px 15px;
+            border: 1px solid var(--color-gris);
+            border-radius: 4px;
+            font-family: "Montserrat", sans-serif;
             font-size: 1rem;
         }
 
@@ -484,28 +597,28 @@
         }
 
         .btn-enviar {
-            background-color: var(--color-azul-principal);
+            background-color: var(--color-rojo-principal);
             color: var(--color-blanco);
             border: none;
             padding: 12px 25px;
-            border-radius: 5px;
+            border-radius: 0;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: background-color 0.3s;
             display: block;
             width: 100%;
+            font-family: "Montserrat", sans-serif;
         }
 
         .btn-enviar:hover {
-            background-color: var(--color-dorado);
-            color: var(--color-negro);
+            background-color: var(--color-rojo-oscuro);
         }
 
         /* Mensajes de estado del formulario */
         .mensaje-exito {
             background-color: #d4edda;
-            color: #155724;
+            color: #f12929;
             padding: 15px;
             border-radius: 5px;
             margin-bottom: 20px;
@@ -533,6 +646,18 @@
         @media (max-width: 992px) {
             .servicio-card {
                 width: calc(50% - 30px);
+            }
+            
+            .card {
+                width: calc(50% - 30px);
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
             }
         }
 
@@ -585,17 +710,103 @@
                 height: 600px;
                 min-height: 600px;
             }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-section {
+                text-align: center;
+            }
+            
+            .hero {
+                height: 60vh;
+                min-height: 500px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 544px) {
+            .stat-item {
+                min-width: 100%;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title p {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Mobile menu */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-negro);
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            nav li {
+                margin: 10px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .btn-presupuesto-header {
+                margin-top: 15px;
+            }
         }
     </style>
-    -->
-    
 </head>
 <body>
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">O.L Render</div>
-                <nav>
+                <div class="logo">
+                    <a href="#">
+                        <span style="font-size: 24px; font-weight: 700; color: #0a0a0a;">O.L RENDER</span>
+                    </a>
+                </div>
+                
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav id="mainNav">
                     <ul>
                         <li><a href="#origen">Origen</a></li>
                         <li><a href="#servicios">Servicios</a></li>
@@ -604,30 +815,74 @@
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </nav>
+                
+                <button class="btn-presupuesto-header">PIDE PRESUPUESTO</button>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Sección Render Principal en lugar de Sobre Mí -->
-        <section class="render-principal">
-            <img src="REND EXT1.png" alt="Render de interior moderno">
+        <!-- Hero Section estilo Davant -->
+        <section class="hero">
+            <div class="hero-image">
+                <img src="REND EXT1.png" alt="Render de interior moderno">
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Expertos en Renders 3D que Generan Negocio</h1>
+                <p>Transformamos tus ideas en visualizaciones impactantes</p>
+                <button class="btn-hero">Reserva una reunión online</button>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="stat-number">+ 6</div>
+                        <div class="stat-text">Años de Experiencia</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-number">+ 350</div>
+                        <div class="stat-text">Clientes Satisfechos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div class="stat-number">+ 5,000</div>
+                        <div class="stat-text">Renders 3D Realizados</div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="origen" class="section origen">
             <div class="container">
-                <h2>Origen</h2>
+                <div class="section-title">
+                    <h2>Origen</h2>
+                    <p>Conoce cómo empezó nuestra historia y qué nos impulsa a crear los mejores renders</p>
+                </div>
                 <p>O.L Render nace de la necesidad actual de ver para sentir, emocionarse y diferenciarse. En un mundo donde las ideas compiten constantemente por llamar la atención, la visualización 3D se convierte en el puente entre la imaginación y la realidad.</p>
-                <p>La empresa surge con el propósito de ofrecer imágenes capaces de transmitir sensaciones, no solo mostrar un espacio. Creemos que cada proyecto de interiorismo merece ser experienciado antes de hacerse realidad, para que el cliente pueda conectar con él, entenderlo y vivirlo.</p>
+                <p>La empresa surge con el propósito de ofrecer imágenes capaces de transmitir sensaciones, not only mostrar un espacio. Creemos que cada proyecto de interiorismo merece ser experienciado antes de hacerse realidad, para que el cliente pueda conectar con él, entenderlo y vivirlo.</p>
                 <p>Nuestro origen está en la convicción de que la visualización no es solo una herramienta técnica, sino un lenguaje emocional que permite soñar, proyectar y decidir con seguridad.</p>
             </div>
-        </section>*/
+        </section>
 
-        <!-- NUEVA SECCIÓN DE SERVICIOS -->
+        <!-- SECCIÓN DE SERVICIOS (SEGUNDO APARTADO) -->
         <section id="servicios" class="section servicios">
             <div class="container">
-                <h2>Servicios</h2>
-                <p>Ofrezco soluciones personalizadas para visualizar y materializar tus espacios soñados. Cada proyecto es único y merece un enfoque a medida.</p>
+                <div class="section-title">
+                    <h2>Servicios</h2>
+                    <p>Ofrecemos soluciones personalizadas para visualizar y materializar tus espacios soñados. Cada proyecto es único y merece un enfoque a medida.</p>
+                </div>
                 
                 <div class="servicios-grid">
                     <div class="servicio-card">
@@ -656,7 +911,10 @@
 
         <section id="proyectos" class="section proyectos">
             <div class="container">
-                <h2>Proyectos Destacados</h2>
+                <div class="section-title">
+                    <h2>Proyectos Destacados</h2>
+                    <p>Algunos de nuestros trabajos más representativos en diferentes ámbitos</p>
+                </div>
                 <div class="proyectos-grid">
                     <div class="card" onclick="window.location.href='https://olrender89.github.io/residencial-01/'">
                         <div class="card-image">
@@ -692,7 +950,10 @@
 
         <section id="contacto" class="section contacto">
             <div class="container">
-                <h2>Contacto</h2>
+                <div class="section-title">
+                    <h2>Contacto</h2>
+                    <p>Estamos aquí para ayudarte con tu proyecto. Contáctanos y te responderemos a la brevedad.</p>
+                </div>
                 
                 <div class="contacto-info">
                     <div class="contacto-item">
@@ -819,12 +1080,39 @@
         </div>
         
         <p>O si prefieres, contáctame directamente al <strong>626 275 068</strong> o al <strong>olrender89@gmail.com</strong></p>
+        
+        <!-- Botón para volver al sitio -->
+        <button onclick="volverAlSitio()" class="btn-hero" style="margin-top: 20px;">
+            Volver al sitio
+        </button>
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 O.L Render - Todos los derechos reservados</p>
-            <p>Teléfono: 626 275 068 | Email: olrender89@gmail.com</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>O.L Render</h3>
+                    <p>Expertos en visualización 3D y renders arquitectónicos de alta calidad.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>Teléfono: 626 275 068</p>
+                    <p>Email: olrender89@gmail.com</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces rápidos</h3>
+                    <a href="#origen">Origen</a>
+                    <a href="#servicios">Servicios</a>
+                    <a href="#proyectos">Proyectos</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 O.L Render - Todos los derechos reservados</p>
+            </div>
         </div>
     </footer>
 
@@ -832,167 +1120,187 @@
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
     <script>
-        // Script para el formulario de contacto con Formspree
-        document.getElementById('formulario-contacto').addEventListener('submit', async function(e) {
+        // Variables globales
+        const modalServicios = document.getElementById('modal-servicios');
+        const confirmacionServicios = document.getElementById('confirmacion-servicios');
+        const formularioServicios = document.getElementById('formulario-servicios');
+        const tipoServicioInput = document.getElementById('tipo-servicio');
+        let servicioSeleccionado = '';
+
+        // Abrir modal al hacer clic en botones de presupuesto
+        document.querySelectorAll('.btn-presupuesto, .btn-presupuesto-header, .btn-hero').forEach(btn => {
+            btn.addEventListener('click', function() {
+                servicioSeleccionado = this.getAttribute('data-servicio') || 'Consulta general';
+                tipoServicioInput.value = servicioSeleccionado;
+                
+                // Ocultar mensajes previos
+                document.getElementById('mensaje-exito-modal').style.display = 'none';
+                document.getElementById('mensaje-error-modal').style.display = 'none';
+                document.getElementById('cargando-modal').style.display = 'none';
+                
+                // Mostrar modal
+                modalServicios.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevenir scroll
+            });
+        });
+
+        // Cerrar modal
+        document.querySelector('.cerrar-modal').addEventListener('click', function() {
+            modalServicios.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Permitir scroll nuevamente
+        });
+
+        // Cerrar modal al hacer clic fuera del contenido
+        window.addEventListener('click', function(event) {
+            if (event.target === modalServicios) {
+                modalServicios.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Manejar envío del formulario de servicios
+        formularioServicios.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Ocultar mensajes previos
-            document.getElementById('mensaje-exito').style.display = 'none';
-            document.getElementById('mensaje-error').style.display = 'none';
-            
-            // Mostrar indicador de carga
-            document.getElementById('cargando').style.display = 'block';
-            
-            // Recopilar datos del formulario
-            const formData = new FormData(this);
+            // Ocultar mensajes previos y mostrar carga
+            document.getElementById('mensaje-exito-modal').style.display = 'none';
+            document.getElementById('mensaje-error-modal').style.display = 'none';
+            document.getElementById('cargando-modal').style.display = 'block';
             
             try {
-                // Enviar datos a Formspree
-                const response = await fetch(this.action, {
+                // Enviar formulario a Formspree usando AJAX
+                const response = await fetch('https://formspree.io/f/mvgbyqzw', {
                     method: 'POST',
-                    body: formData,
+                    body: new FormData(formularioServicios),
                     headers: {
                         'Accept': 'application/json'
                     }
                 });
                 
-                // Ocultar indicador de carga
-                document.getElementById('cargando').style.display = 'none';
+                if (response.ok) {
+                    // Éxito: mostrar confirmación con Calendly
+                    modalServicios.style.display = 'none';
+                    confirmacionServicios.style.display = 'block';
+                    
+                    // Scroll a la sección de confirmación
+                    confirmacionServicios.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Resetear formulario
+                    formularioServicios.reset();
+                    
+                    // Forzar la recarga del widget de Calendly
+                    if (typeof Calendly !== 'undefined' && Calendly.initPopupWidget) {
+                        Calendly.initPopupWidget({
+                            url: 'https://calendly.com/olrender89/30min'
+                        });
+                    }
+                } else {
+                    // Error en el envío
+                    throw new Error('Error en el envío del formulario');
+                }
+            } catch (error) {
+                // Mostrar mensaje de error
+                document.getElementById('cargando-modal').style.display = 'none';
+                document.getElementById('mensaje-error-modal').style.display = 'block';
+                console.error('Error:', error);
+            }
+        });
+
+        // Manejar envío del formulario de contacto principal
+        document.getElementById('formulario-contacto').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Ocultar mensajes previos y mostrar carga
+            document.getElementById('mensaje-exito').style.display = 'none';
+            document.getElementById('mensaje-error').style.display = 'none';
+            document.getElementById('cargando').style.display = 'block';
+            
+            try {
+                // Enviar formulario a Formspree usando AJAX
+                const response = await fetch('https://formspree.io/f/mvgbyqzw', {
+                    method: 'POST',
+                    body: new FormData(this),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
                 
                 if (response.ok) {
-                    // Mostrar mensaje de éxito
+                    // Éxito: mostrar mensaje
+                    document.getElementById('cargando').style.display = 'none';
                     document.getElementById('mensaje-exito').style.display = 'block';
                     
                     // Resetear formulario
                     this.reset();
-                    
-                    // Ocultar mensaje después de 5 segundos
-                    setTimeout(() => {
-                        document.getElementById('mensaje-exito').style.display = 'none';
-                    }, 5000);
                 } else {
-                    // Mostrar mensaje de error
-                    document.getElementById('mensaje-error').style.display = 'block';
-                    
-                    // Ocultar mensaje después de 5 segundos
-                    setTimeout(() => {
-                        document.getElementById('mensaje-error').style.display = 'none';
-                    }, 5000);
+                    // Error en el envío
+                    throw new Error('Error en el envío del formulario');
                 }
             } catch (error) {
-                // Ocultar indicador de carga
-                document.getElementById('cargando').style.display = 'none';
-                
                 // Mostrar mensaje de error
+                document.getElementById('cargando').style.display = 'none';
                 document.getElementById('mensaje-error').style.display = 'block';
-                
-                // Ocultar mensaje después de 5 segundos
-                setTimeout(() => {
-                    document.getElementById('mensaje-error').style.display = 'none';
-                }, 5000);
+                console.error('Error:', error);
             }
         });
 
-        // Script para la sección de servicios
+        // Menu toggle para móviles
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+            
+            // Cambiar ícono del menú
+            const icono = this.querySelector('i');
+            if (nav.classList.contains('active')) {
+                icono.classList.remove('fa-bars');
+                icono.classList.add('fa-times');
+            } else {
+                icono.classList.remove('fa-times');
+                icono.classList.add('fa-bars');
+            }
+        });
+
+        // Cerrar menú móvil al hacer clic en un enlace
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                const nav = document.getElementById('mainNav');
+                if (window.innerWidth <= 768 && nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    const menuToggle = document.getElementById('menuToggle');
+                    menuToggle.querySelector('i').classList.remove('fa-times');
+                    menuToggle.querySelector('i').classList.add('fa-bars');
+                }
+            });
+        });
+
+        // Función para volver al sitio principal desde la confirmación
+        function volverAlSitio() {
+            const confirmacionServicios = document.getElementById('confirmacion-servicios');
+            confirmacionServicios.style.display = 'none';
+            
+            // Hacer scroll al principio de la página
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Asegurar que Calendly se carga correctamente en todos los dispositivos
         document.addEventListener('DOMContentLoaded', function() {
-            // Obtener elementos del DOM
-            const modal = document.getElementById('modal-servicios');
-            const confirmacion = document.getElementById('confirmacion-servicios');
-            const botonesPresupuesto = document.querySelectorAll('.btn-presupuesto');
-            const cerrarModal = document.querySelector('.cerrar-modal');
-            const formularioServicios = document.getElementById('formulario-servicios');
-            const tipoServicioInput = document.getElementById('tipo-servicio');
+            // Precargar el script de Calendly
+            if (typeof Calendly === 'undefined') {
+                const script = document.createElement('script');
+                script.src = 'https://assets.calendly.com/assets/external/widget.js';
+                script.async = true;
+                document.body.appendChild(script);
+            }
             
-            // Abrir modal al hacer clic en los botones
-            botonesPresupuesto.forEach(boton => {
-                boton.addEventListener('click', function() {
-                    const tipoServicio = this.getAttribute('data-servicio');
-                    tipoServicioInput.value = tipoServicio;
-                    
-                    // Reiniciar formulario
-                    formularioServicios.reset();
-                    document.getElementById('mensaje-exito-modal').style.display = 'none';
-                    document.getElementById('mensaje-error-modal').style.display = 'none';
-                    
-                    // Mostrar modal
-                    modal.style.display = 'block';
-                    document.body.style.overflow = 'hidden'; // Prevenir scroll
-                });
-            });
-            
-            // Cerrar modal
-            cerrarModal.addEventListener('click', function() {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Permitir scroll
-            });
-            
-            // Cerrar modal al hacer clic fuera del contenido
-            window.addEventListener('click', function(event) {
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto'; // Permitir scroll
-                }
-            });
-            
-            // Envío del formulario de servicios
-            formularioServicios.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                // Ocultar mensajes previos
-                document.getElementById('mensaje-exito-modal').style.display = 'none';
-                document.getElementById('mensaje-error-modal').style.display = 'none';
-                
-                // Mostrar indicador de carga
-                document.getElementById('cargando-modal').style.display = 'block';
-                
-                // Recopilar datos del formulario
-                const formData = new FormData(this);
-                
-                try {
-                    // Enviar datos a Formspree
-                    const response = await fetch(this.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-                    
-                    // Ocultar indicador de carga
-                    document.getElementById('cargando-modal').style.display = 'none';
-                    
-                    // Verificar si la respuesta es exitosa
-                    if (response.ok) {
-                        // Ocultar modal y mostrar confirmación
-                        modal.style.display = 'none';
-                        confirmacion.style.display = 'block';
-                        
-                        // Desplazar a la sección de confirmación
-                        confirmacion.scrollIntoView({ behavior: 'smooth' });
-                        
-                        // Resetear formulario
-                        this.reset();
-                    } else {
-                        // Mostrar mensaje de error
-                        document.getElementById('mensaje-error-modal').style.display = 'block';
-                        
-                        // Ocultar mensaje después de 5 segundos
-                        setTimeout(() => {
-                            document.getElementById('mensaje-error-modal').style.display = 'none';
-                        }, 5000);
+            // Prevenir el comportamiento por defecto de todos los formularios
+            document.querySelectorAll('form').forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    // Esta función ya está manejada individualmente arriba
+                    // Solo prevenimos el comportamiento por defecto como medida de seguridad
+                    if (!this.getAttribute('data-handled')) {
+                        e.preventDefault();
                     }
-                } catch (error) {
-                    // Ocultar indicador de carga
-                    document.getElementById('cargando-modal').style.display = 'none';
-                    
-                    // Mostrar mensaje de error
-                    document.getElementById('mensaje-error-modal').style.display = 'block';
-                    
-                    // Ocultar mensaje después de 5 segundos
-                    setTimeout(() => {
-                        document.getElementById('mensaje-error-modal').style.display = 'none';
-                    }, 5000);
-                }
+                });
             });
         });
     </script>
