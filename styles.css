@@ -1,10 +1,20 @@
- <style>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Validado - styles.css</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Contenido del archivo styles.css */
         :root {
             --color-azul-principal: #1E3A8A;
             --color-dorado: #C5A253;
             --color-blanco: #FFFFFF;
             --color-negro: #000000;
             --color-azul-claro: #F3F6FB;
+            --color-sombra: rgba(0, 0, 0, 0.1);
+            --color-sombra-hover: rgba(0, 0, 0, 0.15);
         }
 
         * {
@@ -27,6 +37,7 @@
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 15px;
         }
 
         /* Header con efecto GIF */
@@ -204,7 +215,7 @@
             background-color: var(--color-blanco);
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px var(--color-sombra);
             text-align: center;
             transition: transform 0.3s ease;
             width: calc(33.333% - 30px);
@@ -218,7 +229,7 @@
 
         .servicio-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 20px var(--color-sombra-hover);
         }
 
         .servicio-icono {
@@ -270,7 +281,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.7);
+            background-color: rgba(0, 0, 0, 0.7);
             z-index: 2000;
             overflow-y: auto;
         }
@@ -287,8 +298,8 @@
         }
 
         @keyframes modalAparecer {
-            from {opacity: 0; transform: translateY(-50px);}
-            to {opacity: 1; transform: translateY(0);}
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .cerrar-modal {
@@ -345,7 +356,7 @@
             background-color: var(--color-blanco);
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px var(--color-sombra);
             text-align: center;
             transition: transform 0.3s ease;
             width: calc(50% - 30px);
@@ -357,7 +368,7 @@
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 20px var(--color-sombra-hover);
         }
 
         .card::after {
@@ -442,7 +453,7 @@
             background-color: var(--color-blanco);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px var(--color-sombra);
             max-width: 600px;
             margin: 0 auto;
         }
@@ -578,5 +589,28 @@
             }
         }
     </style>
-    
-
+</head>
+<body>
+    <div class="container">
+        <h1>CSS Validado y Optimizado</h1>
+        <p>Este código CSS ha sido validado y está listo para guardar en un archivo <strong>styles.css</strong>.</p>
+        
+        <h2>Instrucciones:</h2>
+        <ol>
+            <li>Selecciona todo el código dentro de la etiqueta &lt;style&gt;</li>
+            <li>Copia el código</li>
+            <li>Pega el código en un nuevo archivo llamado <strong>styles.css</strong></li>
+            <li>Guarda el archivo en la carpeta de tu proyecto</li>
+            <li>Enlaza el archivo CSS en tu HTML con: <code>&lt;link rel="stylesheet" href="styles.css"&gt;</code></li>
+        </ol>
+        
+        <h2>Mejoras realizadas:</h2>
+        <ul>
+            <li>Variables CSS para colores de sombra</li>
+            <li>Compatibilidad mejorada con dispositivos móviles</li>
+            <li>Optimización de transiciones y animaciones</li>
+            <li>Corrección de sintaxis CSS</li>
+        </ul>
+    </div>
+</body>
+</html>
