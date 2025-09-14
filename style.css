@@ -1,4 +1,4 @@
-/* styles.css - CSS Profesional para O.L Render manteniendo estructura actual */
+/* styles.css - CSS Profesional para O.L Render */
 :root {
     /* Paleta de colores */
     --color-blanco: #FFFFFF;
@@ -40,7 +40,7 @@
 }
 
 body {
-    font-family: 'Roboto', 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: var(--color-blanco);
     color: var(--color-texto-principal);
     line-height: 1.6;
@@ -54,9 +54,9 @@ body {
     margin: 0 auto;
 }
 
-/* Tipografía - Manteniendo tus clases pero con nuevos estilos */
+/* Tipografía */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
     margin-bottom: var(--espacio-elemento);
     color: var(--color-texto-principal);
@@ -85,7 +85,7 @@ p {
     line-height: 1.6;
 }
 
-/* Header con efecto GIF - Manteniendo tu estructura pero con nuevos colores */
+/* Header con efecto GIF */
 header {
     background-color: var(--color-blanco);
     color: var(--color-texto-principal);
@@ -140,7 +140,6 @@ header:hover::before {
     display: flex;
     align-items: center;
     transition: color 0.3s ease;
-    font-family: 'Playfair Display', serif;
 }
 
 header:hover .logo {
@@ -166,7 +165,6 @@ nav a {
     transition: color 0.3s;
     position: relative;
     padding: 5px 0;
-    font-family: 'Roboto', sans-serif;
 }
 
 nav a::after {
@@ -442,7 +440,7 @@ footer {
     padding: 12px;
     border: 1px solid var(--color-borde);
     border-radius: var(--radio-borde-pequeno);
-    font-family: "Roboto", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 1rem;
     transition: all var(--transicion-rapida);
 }
@@ -653,6 +651,3 @@ footer {
         font-size: 22px;
     }
 }
-
-/* Fuentes de Google */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap');
