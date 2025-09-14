@@ -5,7 +5,588 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O.L Render - Portafolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">    
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --color-azul-principal: #1E3A8A;
+            --color-dorado: #C5A253;
+            --color-blanco: #FFFFFF;
+            --color-negro: #000000;
+            --color-azul-claro: #F3F6FB;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background-color: var(--color-blanco);
+            color: var(--color-negro);
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header con efecto GIF */
+        header {
+            background-color: var(--color-negro);
+            color: var(--color-blanco);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.5s ease;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--color-azul-principal), var(--color-dorado), var(--color-azul-principal));
+            background-size: 400% 400%;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.5s ease;
+        }
+
+        header:hover::before {
+            opacity: 1;
+            animation: gradientAnimation 3s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            height: 60px;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--color-dorado);
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        header:hover .logo {
+            color: var(--color-blanco);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-blanco);
+            font-weight: 600;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-dorado);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--color-dorado);
+        }
+
+        header:hover nav a {
+            color: var(--color-blanco);
+        }
+
+        header:hover nav a:hover {
+            color: var(--color-dorado);
+        }
+
+        /* Sección Render Principal */
+        .render-principal {
+            padding: 0;
+            background-color: var(--color-negro);
+            text-align: center;
+        }
+
+        .render-principal img {
+            width: 100%;
+            max-height: 80vh;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Secciones */
+        .section {
+            padding: 60px 0;
+        }
+
+        .origen {
+            background-color: var(--color-azul-claro);
+        }
+
+        .servicios {
+            background-color: var(--color-blanco);
+        }
+
+        .proyectos {
+            background-color: var(--color-blanco);
+        }
+
+        .contacto {
+            background-color: var(--color-azul-claro);
+        }
+
+        h2 {
+            color: var(--color-azul-principal);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h3 {
+            color: var(--color-negro);
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--color-negro);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Grid de servicios */
+        .servicios-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .servicio-card {
+            background-color: var(--color-blanco);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            width: calc(33.333% - 30px);
+            max-width: 350px;
+            min-width: 280px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .servicio-icono {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-azul-claro);
+            border-radius: 50%;
+            color: var(--color-azul-principal);
+            font-size: 2rem;
+        }
+
+        .servicio-card h3 {
+            color: var(--color-azul-principal);
+            margin-bottom: 15px;
+        }
+
+        .servicio-card p {
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .btn-presupuesto {
+            background-color: var(--color-azul-principal);
+            color: var(--color-blanco);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .btn-presupuesto:hover {
+            background-color: var(--color-dorado);
+            color: var(--color-negro);
+        }
+
+        /* Modal de formulario */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal-contenido {
+            background-color: var(--color-blanco);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            animation: modalAparecer 0.3s;
+        }
+
+        @keyframes modalAparecer {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        .cerrar-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-negro);
+        }
+
+        .modal h2 {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        /* Página de confirmación */
+        .confirmacion {
+            display: none;
+            padding: 40px 20px;
+            text-align: center;
+            background-color: var(--color-blanco);
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .confirmacion h2 {
+            color: var(--color-azul-principal);
+            margin-bottom: 20px;
+        }
+
+        .confirmacion p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .calendly-container {
+            width: 100%;
+            min-height: 700px;
+            height: 700px;
+            margin-top: 30px;
+        }
+
+        /* Grid de proyectos - CENTRADO EN DOS FILAS */
+        .proyectos-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--color-blanco);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            width: calc(50% - 30px);
+            max-width: 400px;
+            min-width: 280px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .card::after {
+            content: 'Ver más proyectos →';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(30, 58, 138, 0.9);
+            color: white;
+            padding: 10px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            font-weight: 600;
+        }
+
+        .card:hover::after {
+            transform: translateY(0);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card h3 {
+            padding: 15px 0;
+            color: var(--color-azul-principal);
+        }
+
+        .card p {
+            padding: 0 15px 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-negro);
+            color: var(--color-blanco);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Sección de contacto */
+        .contacto-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .contacto-item {
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .contacto-item h3 {
+            color: var(--color-azul-principal);
+            margin-bottom: 15px;
+        }
+
+        .contacto-item p {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .contacto-form {
+            background-color: var(--color-blanco);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--color-azul-principal);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: "Poppins", sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn-enviar {
+            background-color: var(--color-azul-principal);
+            color: var(--color-blanco);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: block;
+            width: 100%;
+        }
+
+        .btn-enviar:hover {
+            background-color: var(--color-dorado);
+            color: var(--color-negro);
+        }
+
+        /* Mensajes de estado del formulario */
+        .mensaje-exito {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .mensaje-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .cargando {
+            display: none;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        /* Responsividad */
+        @media (max-width: 992px) {
+            .servicio-card {
+                width: calc(50% - 30px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .servicios-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .servicio-card {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .proyectos-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .card {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav li {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-content nav {
+                margin-top: 15px;
+            }
+
+            .contacto-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .calendly-container {
+                height: 600px;
+                min-height: 600px;
+            }
+        }
+    </style>
+    
 </head>
 <body>
     <header>
